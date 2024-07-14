@@ -1,0 +1,91 @@
+'use client';
+
+import { Dispatch, FC, SetStateAction } from 'react';
+import Image from 'next/image';
+import maleIcon from '../../assets/icons/male.png';
+import femaleIcon from '../../assets/icons/female.png';
+import { Hero, HeroResponse } from '@/types/hero';
+import { PagesButtonList } from './PagesButtonList';
+
+type HeroListProps = {
+  heroes: HeroResponse;
+  onSelectedHero: Dispatch<SetStateAction<Hero | null>>;
+  onPageChange: (pageNum: number) => void;
+};
+
+export const HeroList: FC<HeroListProps> = ({
+  heroes,
+  onSelectedHero,
+  onPageChange,
+}) => {
+  const handleHeroSelect = (hero: Hero) => {
+    onSelectedHero(hero);
+  };
+
+  const maleContent = (
+    <Image src={maleIcon} width={20} height={20} alt="male" />
+  );
+  const femaleContent = (
+    <Image src={femaleIcon} width={20} height={20} alt="female" />
+  );
+
+  return (
+    <div className="flex flex-col gap-12">
+      <table className="border-spacing-0 border-separate overflow-hidden rounded-[20px] shadow-xl">
+        <thead className="bg-grey_100 ">
+          <tr>
+            <th className="w-[180px]">Name</th>
+            <th className="w-[80px]">Gender</th>
+            <th className="w-[150px]">Birth year</th>
+            <th className="w-[150px]">Height</th>
+            <th className="w-[150px]">Weight</th>
+            <th className="w-[150px]">Eye color</th>
+          </tr>
+        </thead>
+
+        <tbody className="bg-cyan-50">
+          {heroes.results.map((hero) => (
+            <tr
+              className="cursor-pointer hover:bg-grey_700 text-left"
+              key={hero.id}
+              onClick={() => handleHeroSelect(hero)}
+            >
+              <td>{hero.name}</td>
+
+              <td>
+                <div className="relative block m-auto w-fit">
+                  {hero.gender === 'male' ? maleContent : femaleContent}
+                </div>
+              </td>
+
+              <td>
+                {hero.birth_year === 'unknown'
+                  ? 'No information'
+                  : hero.birth_year}
+              </td>
+
+              <td>
+                {hero.height === 'unknown' ? 'No information' : hero.height}
+              </td>
+
+              <td>{hero.mass === 'unknown' ? 'No information' : hero.mass}</td>
+
+              <td>
+                {hero.eye_color === 'unknown'
+                  ? 'No information'
+                  : hero.eye_color}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <PagesButtonList
+        count={heroes.count}
+        prev={heroes.previous}
+        next={heroes.next}
+        onPageChange={onPageChange}
+      />
+    </div>
+  );
+};
