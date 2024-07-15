@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { Handle, Position } from '@xyflow/react';
 import { Starship } from '@/types/starship';
 import { verifyDataExist } from '@/helpers/verifyDataExist';
+import { nodeData } from '@/constants/nodeData';
 
 type StarshipsNodeProps = {
   starships: Starship[];
@@ -12,7 +13,7 @@ export const StarshipsNode: FC<StarshipsNodeProps> = ({ starships }) => {
     <div className="text-updater-node ">
       <Handle
         type="target"
-        id="vehicles"
+        id={`${nodeData.starships.id}`}
         position={Position.Top}
         isConnectable
       />

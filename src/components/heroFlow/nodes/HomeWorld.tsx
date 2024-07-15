@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Handle, Position } from '@xyflow/react';
 import { verifyDataExist } from '@/helpers/verifyDataExist';
+import { nodeData } from '@/constants/nodeData';
 
 type HomeWorldNodeProps = {
   homeWorld: string;
@@ -10,8 +11,8 @@ export const HomeWorldNode: FC<HomeWorldNodeProps> = ({ homeWorld }) => {
   return (
     <div className="text-updater-node ">
       <Handle
-        type="target"
-        id="home-world"
+        type="source"
+        id={`${nodeData.homeWorld.id}`}
         position={Position.Bottom}
         isConnectable
       />

@@ -36,10 +36,10 @@ export const HeroList: FC<HeroListProps> = ({
           <tr>
             <th className="w-[180px]">Name</th>
             <th className="w-[80px]">Gender</th>
-            <th className="w-[150px]">Birth year</th>
-            <th className="w-[150px]">Height</th>
-            <th className="w-[150px]">Weight</th>
-            <th className="w-[150px]">Eye color</th>
+            <th className="w-[150px] hidden lg:table-cell">Birth year</th>
+            <th className="w-[150px] hidden lg:table-cell">Height</th>
+            <th className="w-[150px] hidden lg:table-cell">Weight</th>
+            <th className="w-[150px] hidden lg:table-cell">Eye color</th>
           </tr>
         </thead>
 
@@ -58,19 +58,18 @@ export const HeroList: FC<HeroListProps> = ({
                 </div>
               </td>
 
-              <td>
+              <td className="hidden lg:table-cell">
                 {hero.birth_year === 'unknown'
                   ? 'No information'
                   : hero.birth_year}
               </td>
-
-              <td>
+              <td className="hidden lg:table-cell">
                 {hero.height === 'unknown' ? 'No information' : hero.height}
               </td>
-
-              <td>{hero.mass === 'unknown' ? 'No information' : hero.mass}</td>
-
-              <td>
+              <td className="hidden lg:table-cell">
+                {hero.mass === 'unknown' ? 'No information' : hero.mass}
+              </td>
+              <td className="hidden lg:table-cell">
                 {hero.eye_color === 'unknown'
                   ? 'No information'
                   : hero.eye_color}

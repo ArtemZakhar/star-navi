@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { Handle, Position } from '@xyflow/react';
 import { Species } from '@/types/species';
 import { verifyDataExist } from '@/helpers/verifyDataExist';
+import { nodeData } from '@/constants/nodeData';
 
 type SpeciesNodeProps = {
   species: Species[];
@@ -10,15 +11,17 @@ type SpeciesNodeProps = {
 export const SpeciesNode: FC<SpeciesNodeProps> = ({ species }) => {
   return (
     <div className="text-updater-node ">
+      <Handle type="target" position={Position.Bottom} />
+
       <Handle
-        type="target"
-        id="species"
+        type="source"
+        id={`${nodeData.species.id}`}
         position={Position.Bottom}
         isConnectable
       />
 
       <div className="relative">
-        <h2 className="text-2xl mb-4 text-primary">Species</h2>
+        <h2 className="text-2xl mb-4 text-primary">Specie</h2>
         {species.map((specie) => (
           <table key={specie.id} className="mb-5">
             <tbody>

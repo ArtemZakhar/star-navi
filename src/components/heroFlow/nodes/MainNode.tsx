@@ -4,6 +4,8 @@ import { FilledHero } from '@/types/hero';
 import { Species } from '@/types/species';
 import { Vehicle } from '@/types/vehicle';
 import { Starship } from '@/types/starship';
+import { nodeData } from '@/constants/nodeData';
+import { messages } from '@/constants/messages';
 
 type MainNodeProps = {
   hero: FilledHero;
@@ -16,7 +18,7 @@ export const MainNode: FC<MainNodeProps> = ({ hero, onSelectedHero }) => {
   // data verification function
   const tableData = (arr: TableData) => {
     if (!arr.length) {
-      return 'No information';
+      return messages.noInformation;
     }
 
     return arr.map((item) => {
@@ -43,9 +45,11 @@ export const MainNode: FC<MainNodeProps> = ({ hero, onSelectedHero }) => {
 
   return (
     <div>
+      <Handle type="target" position={Position.Top} isConnectable />
+
       <Handle
         type="source"
-        id="home-world"
+        id={nodeData.mainNode.sources.homeWorld}
         position={Position.Top}
         isConnectable
       />
@@ -103,8 +107,8 @@ export const MainNode: FC<MainNodeProps> = ({ hero, onSelectedHero }) => {
       {!!hero.starships.length && (
         <Handle
           type="source"
-          position={Position.Right}
-          id="starships"
+          position={Position.Left}
+          id={nodeData.mainNode.sources.starships}
           isConnectable
         />
       )}
@@ -113,7 +117,7 @@ export const MainNode: FC<MainNodeProps> = ({ hero, onSelectedHero }) => {
         <Handle
           type="source"
           position={Position.Right}
-          id="films"
+          id={nodeData.mainNode.sources.films}
           style={{ top: '50%' }}
           isConnectable
         />
@@ -122,18 +126,8 @@ export const MainNode: FC<MainNodeProps> = ({ hero, onSelectedHero }) => {
       {!!hero.species.length && (
         <Handle
           type="source"
-          position={Position.Left}
-          id="species"
-          isConnectable
-        />
-      )}
-
-      {!!hero.vehicles.length && (
-        <Handle
-          type="source"
-          position={Position.Left}
-          style={{ top: '75%' }}
-          id="vehicles"
+          position={Position.Bottom}
+          id={nodeData.mainNode.sources.species}
           isConnectable
         />
       )}

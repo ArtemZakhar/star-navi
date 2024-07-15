@@ -1,5 +1,5 @@
-import { HeroResponse } from '@/types/hero';
-import { client } from '@/utils/httpClient';
+import { client } from '../utils/httpClient';
+import { HeroResponse } from '../types/hero';
 
 type GetPaginatedHeroes = (pageNum?: string) => Promise<HeroResponse>;
 

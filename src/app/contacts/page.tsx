@@ -4,21 +4,21 @@ import { developer } from '@/constants/developer';
 export default function Contants() {
   return (
     <main>
-      <section className="flex justify-center items-center flex-col h-[80vh]">
-        <h2 className="text-primary text-2xl font-bold mb-24">
+      <section className="flex justify-center items-center flex-col ">
+        <h2 className="text-primary text-center text-xl md:text-2xl px-2 font-bold mb-24">
           Test assignment was developed by Artem Zakharchuk
         </h2>
         {developer.map((contact) => (
           <div className="flex justify-between w-44" key={contact.id}>
             <a
-              className="text-primary text-2xl font-bold mb-24 hover:text-yellow"
+              className="text-primary text-xl md:text-2xl font-bold mb-10 md:mb-24 hover:text-yellow"
               href={contact.link}
               target="_blank"
             >
               {contact.name}
             </a>
-            
-            <a className='contents' href={contact.link} target="_blank">
+
+            <a className="contents" href={contact.link} target="_blank">
               <Image
                 src={contact.icon}
                 width={30}
