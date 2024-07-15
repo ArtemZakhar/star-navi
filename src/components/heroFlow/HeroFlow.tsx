@@ -1,17 +1,18 @@
 import { FC, useEffect, useRef } from 'react';
 import { Edge, Node, ReactFlow } from '@xyflow/react';
 
-import { FilledHero } from '@/types/hero';
 import { MainNode } from './nodes/MainNode';
 import { SpeciesNode } from './nodes/SpeciesNode';
 import { VehiclesNode } from './nodes/VehiclesNode';
 import { StarshipsNode } from './nodes/StarshipsNode';
 import { FilmNode } from './nodes/FilmNode';
 import { HomeWorldNode } from './nodes/HomeWorld';
+import { nodeWrapperStyle } from '@/constants/nodeWrapperStyle';
+import { nodeData } from '@/constants/nodeData';
+
+import { FilledHero } from '@/types/hero';
 
 import '@xyflow/react/dist/style.css';
-import { nodeData } from '@/constants/nodeData';
-import { nodeWrapperStyle } from '@/constants/nodeWrapperStyle';
 
 type HeroFlowProps = {
   hero: FilledHero | null;

@@ -2,10 +2,12 @@
 
 import { Dispatch, FC, SetStateAction } from 'react';
 import Image from 'next/image';
+import { PagesButtonList } from './PagesButtonList';
+import { NoData } from '../noData';
 import maleIcon from '../../assets/icons/male.png';
 import femaleIcon from '../../assets/icons/female.png';
+
 import { Hero, HeroResponse } from '@/types/hero';
-import { PagesButtonList } from './PagesButtonList';
 
 type HeroListProps = {
   heroes: HeroResponse;
@@ -28,6 +30,7 @@ export const HeroList: FC<HeroListProps> = ({
   const femaleContent = (
     <Image src={femaleIcon} width={20} height={20} alt="female" />
   );
+
 
   return (
     <div className="flex flex-col gap-12">
@@ -60,18 +63,18 @@ export const HeroList: FC<HeroListProps> = ({
 
               <td className="hidden lg:table-cell">
                 {hero.birth_year === 'unknown'
-                  ? 'No information'
+                  ? <NoData />
                   : hero.birth_year}
               </td>
               <td className="hidden lg:table-cell">
-                {hero.height === 'unknown' ? 'No information' : hero.height}
+                {hero.height === 'unknown' ? <NoData /> : hero.height}
               </td>
               <td className="hidden lg:table-cell">
-                {hero.mass === 'unknown' ? 'No information' : hero.mass}
+                {hero.mass === 'unknown' ? <NoData /> : hero.mass}
               </td>
               <td className="hidden lg:table-cell">
                 {hero.eye_color === 'unknown'
-                  ? 'No information'
+                  ? <NoData />
                   : hero.eye_color}
               </td>
             </tr>

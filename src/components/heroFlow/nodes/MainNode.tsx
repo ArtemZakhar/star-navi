@@ -1,11 +1,11 @@
-import { Dispatch, FC, SetStateAction, useCallback, useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { Handle, Position } from '@xyflow/react';
 import { FilledHero } from '@/types/hero';
 import { Species } from '@/types/species';
 import { Vehicle } from '@/types/vehicle';
 import { Starship } from '@/types/starship';
 import { nodeData } from '@/constants/nodeData';
-import { messages } from '@/constants/messages';
+import { NoData } from '@/components/noData';
 
 type MainNodeProps = {
   hero: FilledHero;
@@ -18,7 +18,7 @@ export const MainNode: FC<MainNodeProps> = ({ hero, onSelectedHero }) => {
   // data verification function
   const tableData = (arr: TableData) => {
     if (!arr.length) {
-      return messages.noInformation;
+      return <NoData />;
     }
 
     return arr.map((item) => {

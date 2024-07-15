@@ -1,20 +1,14 @@
 import { FC } from 'react';
-import { Edge, Handle, Node, Position } from '@xyflow/react';
+import { Handle, Position } from '@xyflow/react';
 import { Film } from '@/types/film';
 import { verifyDataExist } from '@/helpers/verifyDataExist';
-import { Vehicle } from '@/types/vehicle';
-import { VehiclesNode } from './VehiclesNode';
 
 type FilmsNodeProps = {
   film: Film;
   id: number;
 };
 
-export const FilmNode: FC<FilmsNodeProps> = ({
-  film,
-  id,
-
-}) => {
+export const FilmNode: FC<FilmsNodeProps> = ({ film, id }) => {
   return (
     <div className="text-updater-node ">
       <Handle
