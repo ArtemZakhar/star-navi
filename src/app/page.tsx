@@ -57,12 +57,12 @@ export default function Home() {
 
   return (
     <main>
-      <section className="flex justify-center w-[100%] h-[90vh]">
+      <section className="flex flex-col items-center w-[100%] h-[90vh]">
         <h1 className="opacity-0 pointer-events-none absolute bottom-0 right-0">
           Star Wars heroes list
         </h1>
         
-        {!!error.length && <p className="text-2xl text-yellow">{error}</p>}
+        {!!error.length && <p className="text-2xl text-yellow mb-7">{error}</p>}
 
         {heroes && !hero && (
           <HeroList
