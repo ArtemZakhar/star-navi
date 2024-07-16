@@ -16,17 +16,17 @@ import '@xyflow/react/dist/style.css';
 
 type HeroFlowProps = {
   hero: FilledHero | null;
-  onSelectedHero: () => void;
+  removeSelectedHero: () => void;
 };
 
-export const HeroFlow: FC<HeroFlowProps> = ({ hero, onSelectedHero }) => {
+export const HeroFlow: FC<HeroFlowProps> = ({ hero, removeSelectedHero }) => {
   // checking clicks outside the Flow
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const closeDropDown = (e: any) => {
       if (wrapperRef.current && !wrapperRef.current?.contains(e.target)) {
-        onSelectedHero();
+        removeSelectedHero();
       }
     };
 
@@ -44,7 +44,7 @@ export const HeroFlow: FC<HeroFlowProps> = ({ hero, onSelectedHero }) => {
   const initialNodes: Node[] = [
     {
       id: nodeData.mainNode.id,
-      data: { label: <MainNode hero={hero} onSelectedHero={onSelectedHero} /> },
+      data: { label: <MainNode hero={hero} removeSelectedHero={removeSelectedHero} /> },
       position: nodeData.mainNode.position,
       type: 'default',
       style: { ...nodeWrapperStyle, width: '450px' },

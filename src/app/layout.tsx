@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { Fira_Sans } from 'next/font/google';
-import ErrorBoundary from '@/components/error/ErrorBoundary';
 import { Suspense } from 'react';
 import { Loading } from '@/components/loading';
+import ErrorBoundary from '@/components/error/ErrorBoundary';
 
 import './globals.css';
 import '@xyflow/react/dist/style.css';

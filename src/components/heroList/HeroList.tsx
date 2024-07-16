@@ -31,7 +31,6 @@ export const HeroList: FC<HeroListProps> = ({
     <Image src={femaleIcon} width={20} height={20} alt="female" />
   );
 
-
   return (
     <div className="flex flex-col gap-12">
       <table className="border-spacing-0 border-separate overflow-hidden rounded-[20px] shadow-xl">

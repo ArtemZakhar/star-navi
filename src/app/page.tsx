@@ -61,6 +61,8 @@ export default function Home() {
         <h1 className="opacity-0 pointer-events-none absolute bottom-0 right-0">
           Star Wars heroes list
         </h1>
+        
+        {!!error.length && <p className="text-2xl text-yellow">{error}</p>}
 
         {heroes && !hero && (
           <HeroList
@@ -70,10 +72,8 @@ export default function Home() {
           />
         )}
 
-        {!!error.length && <p className="text-2xl text-yellow">{error}</p>}
-
         {selectedHero && (
-          <HeroFlow hero={hero} onSelectedHero={removeSelectedHero} />
+          <HeroFlow hero={hero} removeSelectedHero={removeSelectedHero} />
         )}
       </section>
     </main>

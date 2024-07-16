@@ -9,12 +9,12 @@ import { NoData } from '@/components/noData';
 
 type MainNodeProps = {
   hero: FilledHero;
-  onSelectedHero: () => void;
+  removeSelectedHero: () => void;
 };
 
 type TableData = Species[] | Vehicle[] | Starship[];
 
-export const MainNode: FC<MainNodeProps> = ({ hero, onSelectedHero }) => {
+export const MainNode: FC<MainNodeProps> = ({ hero, removeSelectedHero }) => {
   // data verification function
   const tableData = (arr: TableData) => {
     if (!arr.length) {
@@ -31,16 +31,16 @@ export const MainNode: FC<MainNodeProps> = ({ hero, onSelectedHero }) => {
   };
 
   // adding possibility to close the window on Escape
-  const removeSelectedHero = (e: KeyboardEvent) => {
+  const removeHero = (e: KeyboardEvent) => {
     if (e.key === 'Escape') {
-      onSelectedHero();
+      removeSelectedHero();
     }
   };
 
   useEffect(() => {
-    document.body.addEventListener('keydown', removeSelectedHero);
+    document.body.addEventListener('keydown', removeHero);
 
-    () => removeEventListener('keydown', removeSelectedHero);
+    () => removeEventListener('keydown', removeHero);
   }, []);
 
   return (
@@ -57,7 +57,7 @@ export const MainNode: FC<MainNodeProps> = ({ hero, onSelectedHero }) => {
       <div className="relative">
         <h2 className="text-3xl mb-4 text-yellow">{hero.name}</h2>
         <button
-          onClick={() => onSelectedHero()}
+          onClick={() => removeSelectedHero()}
           className="absolute top-[-7px] right-0 text-4xl text-primary"
         >
           &times;
