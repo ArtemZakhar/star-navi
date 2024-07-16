@@ -1,4 +1,4 @@
-To run project local, please write in the terminal 'npm run dev'
+To run the project local, please write in the terminal 'npm run dev'
 
 ```bash
 npm run dev
