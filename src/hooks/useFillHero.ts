@@ -111,7 +111,7 @@ export const useFillHero = (selectedHero: Hero | null) => {
         const starshipsIDs = selectedHero.starships.join(',');
 
         // preparation request for Promise.all
-        const baseUrl = 'https://sw-api.starnavi.io/people/';
+        const baseUrl = 'https://sw-api.starnavi.io';
         const planetFetch = axios.get<PlanetResponse>(
           `${baseUrl}/planets/?id__in=${planetID}`
         );
