@@ -50,6 +50,7 @@ export const HeroList: FC<HeroListProps> = ({
             <tr
               className="cursor-pointer hover:bg-grey_700 text-left"
               key={hero.id}
+              data-testid="heroLine"
               onClick={() => handleHeroSelect(hero)}
             >
               <td>{hero.name}</td>

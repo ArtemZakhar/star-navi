@@ -9,7 +9,7 @@ type VehiclesNodeProps = {
 
 export const VehiclesNode: FC<VehiclesNodeProps> = ({ vehicles }) => {
   return (
-    <div className="text-updater-node ">
+    <div className="text-updater-node" data-testid='vehicleNode'>
       <Handle
         type="source"
         id="vehicles"

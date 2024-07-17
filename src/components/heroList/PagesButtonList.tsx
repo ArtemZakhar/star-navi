@@ -32,11 +32,12 @@ export const PagesButtonList: FC<PagesButtonListProps> = ({
         className={`text-black rounded-md bg-yellow px-2 py-1 md:px-2.5 md:py-[5px] ${prev === null && 'cursor-not-allowed'} hover:bg-yellow_hover disabled:bg-yellow_hover`}
         disabled={prev === null}
         onClick={() => onPageChange(currentPage - 1)}
+        data-testid="prevButton"
       >
         Previous
       </button>
       <div>
-        <ul className=" flex justify-center items-center gap-[5px] sm:gap-[10px]  md:gap-[20px]">
+        <ul className=" flex justify-center items-center gap-[5px] sm:gap-[10px]  md:gap-[20px]" data-testid="buttonList">
           {arrOfPageNumbers.map((number) => (
             <li
               key={number}

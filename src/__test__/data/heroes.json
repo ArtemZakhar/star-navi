@@ -3,7 +3,7 @@
   "next": "https://sw-api.starnavi.io/people/?page=2",
   "previous": null,
   "results": [
-    {
+  {
       "id": 10,
       "name": "Obi-Wan Kenobi",
       "height": "182",
@@ -21,7 +21,7 @@
       "created": "2014-12-10T16:16:29.192000Z",
       "edited": "2014-12-20T21:17:50.325000Z",
       "url": "https://sw-api.starnavi.io/people/10/"
-    },
+    },  
     {
       "id": 12,
       "name": "Wilhuff Tarkin",

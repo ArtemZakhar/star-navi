@@ -1,30 +1,13 @@
-import type { Config } from 'jest';
-import nextJest from 'next/jest.js';
+import nextJest from 'next/jest';
 
 const createJestConfig = nextJest({
   dir: './',
 });
 
-const config: Config = {
+const customJestConfig = {
   preset: 'ts-jest',
-  clearMocks: true,
-  coverageProvider: 'v8',
-
-  moduleDirectories: ['node_modules'],
-
-  moduleFileExtensions: [
-    'js',
-    'mjs',
-    'cjs',
-    'jsx',
-    'ts',
-    'tsx',
-    'json',
-    'node',
-  ],
-
   testEnvironment: 'jsdom',
-
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   globals: {
     'ts-jest': {
       tsconfig: 'tsconfig.jest.json',
@@ -32,4 +15,4 @@ const config: Config = {
   },
 };
 
-export default config;
+export default createJestConfig(customJestConfig);

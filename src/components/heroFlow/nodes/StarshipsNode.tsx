@@ -10,7 +10,7 @@ type StarshipsNodeProps = {
 
 export const StarshipsNode: FC<StarshipsNodeProps> = ({ starships }) => {
   return (
-    <div className="text-updater-node ">
+    <div className="text-updater-node">
       <Handle
         type="target"
         id={`${nodeData.starships.id}`}
@@ -21,7 +21,7 @@ export const StarshipsNode: FC<StarshipsNodeProps> = ({ starships }) => {
       <div className="relative">
         <h2 className="text-2xl mb-4 text-primary">Starships</h2>
         {starships.map((starship) => (
-          <table key={starship.id} className="mb-5">
+          <table key={starship.id} className="mb-5" data-testid="starshipNode">
             <tbody>
               <tr>
                 <th className="bg-grey_100">Name</th>

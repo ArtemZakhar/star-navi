@@ -10,7 +10,7 @@ type FilmsNodeProps = {
 
 export const FilmNode: FC<FilmsNodeProps> = ({ film, id }) => {
   return (
-    <div className="text-updater-node ">
+    <div className="text-updater-node" data-testid='filmNode'>
       <Handle
         type="source"
         id={`films-${id}`}
