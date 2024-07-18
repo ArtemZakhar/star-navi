@@ -11,3 +11,7 @@ To run tests, please write in the terminal 'npm run test'
 ```bash
 npm run test
 ```
+
+
+[DEMO LINK](https://star-navi-delta.vercel.app/)
+
