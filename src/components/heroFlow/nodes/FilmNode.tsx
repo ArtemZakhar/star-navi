@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Handle, Position } from '@xyflow/react';
 import { Film } from '@/types/film';
-import { verifyDataExist } from '@/helpers/verifyDataExist';
+import { VerifyDataExist } from '@/components/ui/verifyDataExist';
 
 type FilmsNodeProps = {
   film: Film;
@@ -10,7 +10,7 @@ type FilmsNodeProps = {
 
 export const FilmNode: FC<FilmsNodeProps> = ({ film, id }) => {
   return (
-    <div className="text-updater-node" data-testid='filmNode'>
+    <div className="text-updater-node" data-testid="filmNode">
       <Handle
         type="source"
         id={`films-${id}`}
@@ -35,17 +35,23 @@ export const FilmNode: FC<FilmsNodeProps> = ({ film, id }) => {
 
             <tr>
               <th className="bg-grey_100">Director</th>
-              <td>{verifyDataExist(film.director)}</td>
+              <td>
+                <VerifyDataExist data={film.director} />
+              </td>
             </tr>
 
             <tr>
               <th className="bg-grey_100">Producer</th>
-              <td>{verifyDataExist(film.producer)}</td>
+              <td>
+                <VerifyDataExist data={film.producer} />
+              </td>
             </tr>
 
             <tr>
               <th className="bg-grey_100">Release Date</th>
-              <td>{verifyDataExist(film.release_date)}</td>
+              <td>
+                <VerifyDataExist data={film.release_date} />
+              </td>
             </tr>
           </tbody>
         </table>

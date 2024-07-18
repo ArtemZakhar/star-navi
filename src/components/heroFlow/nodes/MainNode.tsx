@@ -5,7 +5,7 @@ import { Species } from '@/types/species';
 import { Vehicle } from '@/types/vehicle';
 import { Starship } from '@/types/starship';
 import { nodeData } from '@/constants/nodeData';
-import { NoData } from '@/components/noData';
+import { NoData } from '@/components/ui/noData';
 
 type MainNodeProps = {
   hero: FilledHero;

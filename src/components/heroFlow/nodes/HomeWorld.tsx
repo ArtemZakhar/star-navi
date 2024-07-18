@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Handle, Position } from '@xyflow/react';
-import { verifyDataExist } from '@/helpers/verifyDataExist';
 import { nodeData } from '@/constants/nodeData';
+import { VerifyDataExist } from '@/components/ui/verifyDataExist';
 
 type HomeWorldNodeProps = {
   homeWorld: string;
@@ -21,7 +21,7 @@ export const HomeWorldNode: FC<HomeWorldNodeProps> = ({ homeWorld }) => {
         <h2 className="text-2xl mb-4 text-primary">Hero Home World</h2>
 
         <h3 className="text-xl underline text-yellow">
-          {verifyDataExist(homeWorld)}
+          <VerifyDataExist data={homeWorld} />
         </h3>
       </div>
     </div>

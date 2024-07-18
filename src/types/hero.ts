@@ -30,22 +30,13 @@ export type HeroResponse = {
   results: Hero[];
 };
 
-export type FilledHero = {
-  id: number;
-  name: string;
-  height: string;
-  mass: string;
-  hair_color: string;
-  skin_color: string;
-  eye_color: string;
-  birth_year: string;
-  gender: string;
+export type FilledHero = Omit<
+  Hero,
+  'homeworld' | 'films' | 'species' | 'vehicles' | 'starships'
+> & {
   homeworld: string;
   films: Film[];
   species: Species[];
   vehicles: Vehicle[];
   starships: Starship[];
-  created: string;
-  edited: string;
-  url: string;
 };

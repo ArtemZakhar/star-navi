@@ -6,7 +6,7 @@ export const ErrorImg = () => {
       xmlns="http://www.w3.org/2000/svg"
       version="1.1"
       xmlSpace="preserve"
-      style={{display: 'block', margin: '0 auto'}}
+      style={{ display: 'block', margin: '0 auto' }}
     >
       <desc>Created with Fabric.js 5.2.4</desc>
       <g className="layer">

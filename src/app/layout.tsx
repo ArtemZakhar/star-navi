@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Fira_Sans } from 'next/font/google';
 import { Suspense } from 'react';
-import { Loading } from '@/components/loading';
+import { Loading } from '@/components/ui/loading';
 import ErrorBoundary from '@/components/error/ErrorBoundary';
 
 import './globals.css';

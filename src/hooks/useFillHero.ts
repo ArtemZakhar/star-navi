@@ -61,7 +61,7 @@ export const useFillHero = (selectedHero: Hero | null) => {
         ])
           .then(
             ([planetRes, filmsRes, speciesRes, vehiclesRes, starshipsRes]) => {
-              // write all missed data
+              // fill all missed data
               setHero({
                 ...selectedHero,
                 species: speciesRes.data.results,

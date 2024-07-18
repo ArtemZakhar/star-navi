@@ -20,9 +20,7 @@ describe('useFillHero hook testing', () => {
   it('should filled hero correctly', async () => {
     setHero = jest.fn(() => selectedHero);
 
-    let result;
-
-    result = renderHook(() => useFillHero(heroData)).result;
+    const result = renderHook(() => useFillHero(heroData)).result;
 
     await waitFor(() => {
       expect(result.current.hero.name).toBe('Obi-Wan Kenobi');

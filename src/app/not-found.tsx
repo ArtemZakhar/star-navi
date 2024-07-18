@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import star from '../assets/not-found.png';
+import star from '../assets/img/not-found.png';
 
 export default function NotFound() {
   return (

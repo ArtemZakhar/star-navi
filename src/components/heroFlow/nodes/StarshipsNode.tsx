@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { Handle, Position } from '@xyflow/react';
 import { Starship } from '@/types/starship';
-import { verifyDataExist } from '@/helpers/verifyDataExist';
 import { nodeData } from '@/constants/nodeData';
+import { VerifyDataExist } from '@/components/ui/verifyDataExist';
 
 type StarshipsNodeProps = {
   starships: Starship[];
@@ -26,28 +26,36 @@ export const StarshipsNode: FC<StarshipsNodeProps> = ({ starships }) => {
               <tr>
                 <th className="bg-grey_100">Name</th>
                 <td className="w-[300px] text-yellow">
-                  {verifyDataExist(starship.name)}
+                  <VerifyDataExist data={starship.name} />
                 </td>
               </tr>
 
               <tr>
                 <th className="bg-grey_100">Model</th>
-                <td>{verifyDataExist(starship.model)}</td>
+                <td>
+                  <VerifyDataExist data={starship.model} />
+                </td>
               </tr>
 
               <tr>
                 <th className="bg-grey_100">Manufacturer</th>
-                <td>{verifyDataExist(starship.manufacturer)}</td>
+                <td>
+                  <VerifyDataExist data={starship.manufacturer} />
+                </td>
               </tr>
 
               <tr>
                 <th className="bg-grey_100">Cost</th>
-                <td>{verifyDataExist(starship.cost_in_credits)}</td>
+                <td>
+                  <VerifyDataExist data={starship.cost_in_credits} />
+                </td>
               </tr>
 
               <tr>
                 <th className="bg-grey_100">Starship Class</th>
-                <td>{verifyDataExist(starship.starship_class)}</td>
+                <td>
+                  <VerifyDataExist data={starship.starship_class} />
+                </td>
               </tr>
             </tbody>
           </table>

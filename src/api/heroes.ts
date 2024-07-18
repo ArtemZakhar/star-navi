@@ -4,13 +4,13 @@ import { HeroResponse } from '../types/hero';
 type GetPaginatedHeroes = (pageNum?: string) => Promise<HeroResponse>;
 
 export const getPaginatedHeroes: GetPaginatedHeroes = async (pageNum) => {
-  let link = '/people/';
+  const link = '/people/';
 
-  if (pageNum) {
-    link += `?page=${pageNum}`;
-  }
-
-  const heroes = (await client.get<HeroResponse>(link)).data;
+  const heroes = (
+    await client.get<HeroResponse>(link, {
+      params: { page: pageNum || undefined },
+    })
+  ).data;
 
   return heroes;
 };

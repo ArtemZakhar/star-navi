@@ -23,7 +23,7 @@ export default function Contants() {
                 src={contact.icon}
                 width={30}
                 height={30}
-                className={`h-7 w-7 cursor-pointer hover:scale-[110%]`}
+                className="h-7 w-7 cursor-pointer hover:scale-[110%]"
                 alt={`${contact.name} icon`}
               />
             </a>

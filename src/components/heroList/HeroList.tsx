@@ -1,13 +1,12 @@
 'use client';
 
 import { Dispatch, FC, SetStateAction } from 'react';
-import Image from 'next/image';
 import { PagesButtonList } from './PagesButtonList';
-import { NoData } from '../noData';
-import maleIcon from '../../assets/icons/male.png';
-import femaleIcon from '../../assets/icons/female.png';
 
 import { Hero, HeroResponse } from '@/types/hero';
+import { VerifyDataExist } from '../ui/verifyDataExist';
+import { Male } from './Male';
+import { Female } from './Female';
 
 type HeroListProps = {
   heroes: HeroResponse;
@@ -20,16 +19,9 @@ export const HeroList: FC<HeroListProps> = ({
   onSelectedHero,
   onPageChange,
 }) => {
-  const handleHeroSelect = (hero: Hero) => {
+  const selectHero = (hero: Hero) => {
     onSelectedHero(hero);
   };
-
-  const maleContent = (
-    <Image src={maleIcon} width={20} height={20} alt="male" />
-  );
-  const femaleContent = (
-    <Image src={femaleIcon} width={20} height={20} alt="female" />
-  );
 
   return (
     <div className="flex flex-col gap-12">
@@ -51,37 +43,32 @@ export const HeroList: FC<HeroListProps> = ({
               className="cursor-pointer hover:bg-grey_700 text-left"
               key={hero.id}
               data-testid="heroLine"
-              onClick={() => handleHeroSelect(hero)}
+              onClick={() => selectHero(hero)}
             >
               <td>{hero.name}</td>
 
               <td>
                 <div className="relative block m-auto w-fit">
-                  {hero.gender === 'male' ? maleContent : femaleContent}
+                  {hero.gender === 'male' ? <Male /> : <Female />}
                 </div>
               </td>
 
               <td className="hidden lg:table-cell">
-                {hero.birth_year === 'unknown'
-                  ? <NoData />
-                  : hero.birth_year}
+                <VerifyDataExist data={hero.birth_year} />
               </td>
               <td className="hidden lg:table-cell">
-                {hero.height === 'unknown' ? <NoData /> : hero.height}
+                <VerifyDataExist data={hero.height} />
               </td>
               <td className="hidden lg:table-cell">
-                {hero.mass === 'unknown' ? <NoData /> : hero.mass}
+                <VerifyDataExist data={hero.mass} />
               </td>
               <td className="hidden lg:table-cell">
-                {hero.eye_color === 'unknown'
-                  ? <NoData />
-                  : hero.eye_color}
+                <VerifyDataExist data={hero.eye_color} />
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-
       <PagesButtonList
         count={heroes.count}
         prev={heroes.previous}

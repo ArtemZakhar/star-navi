@@ -1,4 +1,4 @@
-import { qtyHeroesOnPage } from '@/constants/qtyHeroesOnPage';
+import { quantityHeroesOnPage } from '@/constants/quantityHeroesOnPage';
 import { useSearchParams } from 'next/navigation';
 import { FC } from 'react';
 
@@ -18,13 +18,27 @@ export const PagesButtonList: FC<PagesButtonListProps> = ({
   const params = useSearchParams();
   const currentPage = Number(params.get('page') || 0);
 
-  const qtyPages = Math.ceil(count / qtyHeroesOnPage);
+  const qtyPages = Math.ceil(count / quantityHeroesOnPage);
 
   // filled array with numbers according to outer information
   // count = 83, qtyHeroesOnPage = 10
   const arrOfPageNumbers = new Array(qtyPages)
     .fill(null)
     .map((page, index) => index + 1);
+
+  const activePageWrapperClass = (page: number) => {
+    return (
+      (currentPage === page || (!currentPage && page === 1)) &&
+      'bg-yellow_active'
+    );
+  };
+
+  const activePageTextClass = (page: number) => {
+    return (
+      (currentPage === page || (!currentPage && page === 1)) &&
+      'font-bold !text-primary'
+    );
+  };
 
   return (
     <div className="flex flex-col sm:flex-row justify-center items-center gap-5 sm:gap-2.5  md:gap-5">
@@ -37,14 +51,17 @@ export const PagesButtonList: FC<PagesButtonListProps> = ({
         Previous
       </button>
       <div>
-        <ul className=" flex justify-center items-center gap-[5px] sm:gap-[10px]  md:gap-[20px]" data-testid="buttonList">
+        <ul
+          className=" flex justify-center items-center gap-[5px] sm:gap-[10px]  md:gap-[20px]"
+          data-testid="buttonList"
+        >
           {arrOfPageNumbers.map((number) => (
             <li
               key={number}
-              className={`border border-yellow rounded-md bg-transparent hover:bg-grey_700 ${(currentPage === number || !currentPage && number === 1) && 'bg-yellow_active'}`}
+              className={`border border-yellow rounded-md bg-transparent hover:bg-grey_700 ${activePageWrapperClass(number)}`}
             >
               <button
-                className={`text-yellow w-6 h-7 md:w-8 md:h-9 ${(currentPage === number || !currentPage && number === 1) && 'text-primary font-bold'}`}
+                className={`text-yellow w-6 h-7 md:w-8 md:h-9 ${activePageTextClass(number)}`}
                 onClick={() => onPageChange(number)}
               >
                 {number}

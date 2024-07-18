@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Handle, Position } from '@xyflow/react';
 import { Vehicle } from '@/types/vehicle';
-import { verifyDataExist } from '@/helpers/verifyDataExist';
+import { VerifyDataExist } from '@/components/ui/verifyDataExist';
 
 type VehiclesNodeProps = {
   vehicles: Vehicle[];
@@ -9,7 +9,7 @@ type VehiclesNodeProps = {
 
 export const VehiclesNode: FC<VehiclesNodeProps> = ({ vehicles }) => {
   return (
-    <div className="text-updater-node" data-testid='vehicleNode'>
+    <div className="text-updater-node" data-testid="vehicleNode">
       <Handle
         type="source"
         id="vehicles"
@@ -25,28 +25,36 @@ export const VehiclesNode: FC<VehiclesNodeProps> = ({ vehicles }) => {
               <tr>
                 <th className="bg-grey_100">Name</th>
                 <td className="w-[300px] text-yellow">
-                  {verifyDataExist(vehicle.name)}
+                  <VerifyDataExist data={vehicle.name} />
                 </td>
               </tr>
 
               <tr>
                 <th className="bg-grey_100">Model</th>
-                <td>{verifyDataExist(vehicle.model)}</td>
+                <td>
+                  <VerifyDataExist data={vehicle.model} />
+                </td>
               </tr>
 
               <tr>
                 <th className="bg-grey_100">Manufacturer</th>
-                <td>{verifyDataExist(vehicle.manufacturer)}</td>
+                <td>
+                  <VerifyDataExist data={vehicle.manufacturer} />
+                </td>
               </tr>
 
               <tr>
                 <th className="bg-grey_100">Cost</th>
-                <td>{verifyDataExist(vehicle.cost_in_credits)}</td>
+                <td>
+                  <VerifyDataExist data={vehicle.cost_in_credits} />
+                </td>
               </tr>
 
               <tr>
                 <th className="bg-grey_100">Vehicle Class</th>
-                <td>{verifyDataExist(vehicle.vehicle_class)}</td>
+                <td>
+                  <VerifyDataExist data={vehicle.vehicle_class} />
+                </td>
               </tr>
             </tbody>
           </table>
