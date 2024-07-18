@@ -6,7 +6,12 @@ import { HeroList } from '@/components/heroList';
 import { Hero, HeroResponse } from '@/types/hero';
 import { useFillHero } from '@/hooks/useFillHero';
 import { HeroFlow } from '@/components/heroFlow';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import {
+  notFound,
+  usePathname,
+  useRouter,
+  useSearchParams,
+} from 'next/navigation';
 
 export default function Home() {
   // get information about the page number from search
@@ -28,7 +33,11 @@ export default function Home() {
       searchParam = `${page}`;
     }
 
-    getPaginatedHeroes(searchParam).then(setHeroes);
+    getPaginatedHeroes(searchParam)
+      .then(setHeroes)
+      .catch(() => {
+        router.push('/not-found');
+      });
   }, [page]);
 
   // after a user has selected the hero, with the help of a custom hook,
@@ -61,7 +70,7 @@ export default function Home() {
         <h1 className="opacity-0 pointer-events-none absolute bottom-0 right-0">
           Star Wars heroes list
         </h1>
-        
+
         {!!error.length && <p className="text-2xl text-yellow mb-7">{error}</p>}
 
         {heroes && !hero && (

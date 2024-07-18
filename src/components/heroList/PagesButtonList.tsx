@@ -50,6 +50,7 @@ export const PagesButtonList: FC<PagesButtonListProps> = ({
       >
         Previous
       </button>
+
       <div>
         <ul
           className=" flex justify-center items-center gap-[5px] sm:gap-[10px]  md:gap-[20px]"
@@ -70,6 +71,7 @@ export const PagesButtonList: FC<PagesButtonListProps> = ({
           ))}
         </ul>
       </div>
+      
       <button
         className={`text-black rounded-[5px] bg-yellow px-2 py-1 md:px-2.5 md:py-[5px] ${next === null && 'cursor-not-allowed'} hover:bg-yellow_hover disabled:bg-yellow_hover`}
         disabled={next === null}
